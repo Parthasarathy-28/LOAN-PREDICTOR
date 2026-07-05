@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexusLend · AI Loan Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <!-- ░░ AMBIENT BLOBS ░░ -->
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+
+    <!-- ░░ HEADER ░░ -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-icon">⬡</span>
+          <span class="logo-text">NexusLend<sup>AI</sup></span>
+        </div>
+        <nav class="nav-pills">
+          <span class="pill active">Loan Analysis</span>
+          <span class="pill">Risk Engine</span>
+          <span class="pill">API Docs</span>
+        </nav>
+        <div class="header-badge"><span class="dot"></span> Live Model</div>
+      </div>
+    </header>
+
+    <!-- ░░ HERO ░░ -->
+    <section class="hero">
+      <div class="hero-label">Powered by Machine Learning</div>
+      <h1 class="hero-title">
+        Intelligent Loan<br />
+        <span class="gradient-text">Decision Engine</span>
+      </h1>
+      <p class="hero-sub">
+        Submit applicant data to receive instant risk profiling, EMI
+        projections, and AI-backed approval decisions — all in under a second.
+      </p>
+      <div class="hero-stats">
+        <div class="hstat"><span>99.2%</span><label>Model Accuracy</label></div>
+        <div class="hstat"><span>&lt;1s</span><label>Decision Time</label></div>
+        <div class="hstat"><span>32</span><label>Input Signals</label></div>
+        <div class="hstat"><span>3</span><label>Risk Tiers</label></div>
+      </div>
+    </section>
+
+    <!-- ░░ FORM ░░ -->
+    <main class="form-wrapper">
+      <form id="loanForm">
+        <!-- GROUP 1: Loan Basics -->
+        <div class="form-section">
+          <div class="section-header">
+            <div class="section-icon">01</div>
+            <div>
+              <h2>Loan Basics</h2>
+              <p>Core loan parameters and financial amounts</p>
+            </div>
+          </div>
+          <div class="grid grid-3">
+            <div class="field">
+              <label>Loan Amount (₹)</label>
+              <input
+                type="number"
+                name="loan_amount"
+                placeholder="e.g. 500000"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Rate of Interest (%)</label>
+              <input
+                type="number"
+                name="rate_of_interest"
+                step="0.01"
+                placeholder="e.g. 8.5"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Loan Term (months)</label>
+              <input
+                type="number"
+                name="term"
+                placeholder="e.g. 240"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Property Value (₹)</label>
+              <input
+                type="number"
+                name="property_value"
+                placeholder="e.g. 700000"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>LTV (%)</label>
+              <input
+                type="number"
+                name="LTV"
+                step="0.01"
+                placeholder="e.g. 71.4"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Upfront Charges (₹)</label>
+              <input
+                type="number"
+                name="Upfront_charges"
+                step="0.01"
+                placeholder="e.g. 2000"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Interest Rate Spread (%)</label>
+              <input
+                type="number"
+                name="Interest_rate_spread"
+                step="0.01"
+                placeholder="e.g. 0.5"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Year</label>
+              <input
+                type="number"
+                name="year"
+                placeholder="e.g. 2023"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Total Units</label>
+              <input
+                type="number"
+                name="total_units"
+                placeholder="e.g. 1"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP 2: Applicant Profile -->
+        <div class="form-section">
+          <div class="section-header">
+            <div class="section-icon">02</div>
+            <div>
+              <h2>Applicant Profile</h2>
+              <p>Demographic and financial standing of the borrower</p>
+            </div>
+          </div>
+          <div class="grid grid-3">
+            <div class="field">
+              <label>Annual Income (₹)</label>
+              <input
+                type="number"
+                name="income"
+                placeholder="e.g. 720000"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Credit Score</label>
+              <input
+                type="number"
+                name="Credit_Score"
+                placeholder="300 – 850"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>DTIR (%)</label>
+              <input
+                type="number"
+                name="dtir1"
+                step="0.01"
+                placeholder="e.g. 36.5"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Age Group</label>
+              <select name="age" required>
+                <option value="">Select age range</option>
+                <option value="25-34">25 – 34</option>
+                <option value="35-44">35 – 44</option>
+                <option value="45-54">45 – 54</option>
+                <option value="55-64">55 – 64</option>
+                <option value="65-74">65 – 74</option>
+                <option value="&gt;74">&gt; 74</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Gender</label>
+              <select name="Gender" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Joint">Joint</option>
+                <option value="Sex Not Available">Not Disclosed</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Credit Type</label>
+              <select name="credit_type" required>
+                <option value="">Select</option>
+                <option value="EXP">EXP</option>
+                <option value="EQUI">EQUI</option>
+                <option value="TRANS">TRANS</option>
+                <option value="CIB">CIB</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Co-Applicant Credit Type</label>
+              <select name="co-applicant_credit_type" required>
+                <option value="">Select</option>
+                <option value="EXP">EXP</option>
+                <option value="EQUI">EQUI</option>
+                <option value="TRANS">TRANS</option>
+                <option value="CIB">CIB</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Credit Worthiness</label>
+              <select name="Credit_Worthiness" required>
+                <option value="">Select</option>
+                <option value="l1">L1 – Excellent</option>
+                <option value="l2">L2 – Good</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Open Credit</label>
+              <select name="open_credit" required>
+                <option value="">Select</option>
+                <option value="nopc">No Prior Credit</option>
+                <option value="opc">Open Prior Credit</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP 3: Loan Characteristics -->
+        <div class="form-section">
+          <div class="section-header">
+            <div class="section-icon">03</div>
+            <div>
+              <h2>Loan Characteristics</h2>
+              <p>Type, purpose and structural attributes</p>
+            </div>
+          </div>
+          <div class="grid grid-3">
+            <div class="field">
+              <label>Loan Limit</label>
+              <select name="loan_limit" required>
+                <option value="">Select</option>
+                <option value="cf">Conforming</option>
+                <option value="ncf">Non-Conforming</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Loan Type</label>
+              <select name="loan_type" required>
+                <option value="">Select</option>
+                <option value="type1">Type 1</option>
+                <option value="type2">Type 2</option>
+                <option value="type3">Type 3</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Loan Purpose</label>
+              <select name="loan_purpose" required>
+                <option value="">Select</option>
+                <option value="p1">Purchase</option>
+                <option value="p2">Refinance</option>
+                <option value="p3">Construction</option>
+                <option value="p4">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Approved in Advance</label>
+              <select name="approv_in_adv" required>
+                <option value="">Select</option>
+                <option value="pre">Pre-approved</option>
+                <option value="nopre">Not Pre-approved</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Business / Commercial</label>
+              <select name="business_or_commercial" required>
+                <option value="">Select</option>
+                <option value="b/c">Business / Commercial</option>
+                <option value="nob/c">Non-Business</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Submission Channel</label>
+              <select name="submission_of_application" required>
+                <option value="">Select</option>
+                <option value="to_inst">To Institution</option>
+                <option value="not_inst">Not to Institution</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP 4: Property & Security -->
+        <div class="form-section">
+          <div class="section-header">
+            <div class="section-icon">04</div>
+            <div>
+              <h2>Property &amp; Security</h2>
+              <p>Collateral details and property attributes</p>
+            </div>
+          </div>
+          <div class="grid grid-3">
+            <div class="field">
+              <label>Construction Type</label>
+              <select name="construction_type" required>
+                <option value="">Select</option>
+                <option value="sb">Site Built</option>
+                <option value="mh">Manufactured</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Occupancy Type</label>
+              <select name="occupancy_type" required>
+                <option value="">Select</option>
+                <option value="pr">Primary Residence</option>
+                <option value="sr">Secondary Residence</option>
+                <option value="ir">Investment</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Secured By</label>
+              <select name="Secured_by" required>
+                <option value="">Select</option>
+                <option value="home">Home</option>
+                <option value="land">Land</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Security Type</label>
+              <select name="Security_Type" required>
+                <option value="">Select</option>
+                <option value="direct">Direct</option>
+                <option value="Indire">Indirect</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Region</label>
+              <select name="Region" required>
+                <option value="">Select</option>
+                <option value="North">North</option>
+                <option value="South">South</option>
+                <option value="central">Central</option>
+                <option value="north-east">North-East</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP 5: Loan Flags -->
+        <div class="form-section">
+          <div class="section-header">
+            <div class="section-icon">05</div>
+            <div>
+              <h2>Loan Flags</h2>
+              <p>Special conditions and payment features</p>
+            </div>
+          </div>
+          <div class="grid grid-4">
+            <div class="field">
+              <label>Negative Amortisation</label>
+              <select name="Neg_ammortization" required>
+                <option value="">Select</option>
+                <option value="not_neg">Not Negative</option>
+                <option value="neg_amm">Negative</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Interest Only</label>
+              <select name="interest_only" required>
+                <option value="">Select</option>
+                <option value="not_int">Not Interest-Only</option>
+                <option value="int_only">Interest-Only</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Lump Sum Payment</label>
+              <select name="lump_sum_payment" required>
+                <option value="">Select</option>
+                <option value="not_lpsm">Not Lump Sum</option>
+                <option value="lpsm">Lump Sum</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="submit-area">
+          <button type="submit" id="analyzeBtn" class="btn-analyze">
+            <span class="btn-text">Run AI Analysis</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <!-- ░░ RESULT PANEL ░░ -->
+    <section id="resultSection" class="result-section hidden">
+      <div class="result-inner">
+        <!-- VERDICT BANNER -->
+        <div class="verdict-banner" id="verdictBanner">
+          <div class="verdict-glow"></div>
+          <div class="verdict-left">
+            <div class="verdict-label">AI Verdict</div>
+            <div class="verdict-outcome" id="verdictOutcome">—</div>
+            <div class="verdict-decision" id="verdictDecision">—</div>
+          </div>
+          <div class="verdict-right">
+            <div class="risk-ring" id="riskRing">
+              <svg viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="50" class="ring-bg" />
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="50"
+                  class="ring-fill"
+                  id="ringFill"
+                />
+              </svg>
+              <div class="ring-label">
+                <span id="ringProb">—</span>
+                <small>Default Risk</small>
+              </div>
+            </div>
+            <div class="risk-badge" id="riskBadge">—</div>
+          </div>
+        </div>
+
+        <!-- METRIC CARDS -->
+        <div class="metrics-row">
+          <div class="metric-card" id="mcEmi">
+            <div class="mc-icon">💳</div>
+            <div class="mc-val" id="emiVal">—</div>
+            <div class="mc-label">Monthly EMI</div>
+          </div>
+          <div class="metric-card" id="mcRatio">
+            <div class="mc-icon">📊</div>
+            <div class="mc-val" id="ratioVal">—</div>
+            <div class="mc-label">EMI / Income Ratio</div>
+          </div>
+          <div class="metric-card" id="mcSafe">
+            <div class="mc-icon">🛡️</div>
+            <div class="mc-val" id="safeVal">—</div>
+            <div class="mc-label">Safe Loan Amount</div>
+          </div>
+          <div class="metric-card" id="mcProb">
+            <div class="mc-icon">🎯</div>
+            <div class="mc-val" id="probVal">—</div>
+            <div class="mc-label">Default Probability</div>
+          </div>
+        </div>
+
+        <!-- REASONS -->
+        <div class="reasons-panel">
+          <h3 class="panel-title">
+            <span class="panel-icon">🧠</span> AI Reasoning
+          </h3>
+          <ul id="reasonsList" class="reasons-list"></ul>
+        </div>
+
+        <!-- RECOMMENDATION -->
+        <div class="reco-panel" id="recoPanel">
+          <h3 class="panel-title">
+            <span class="panel-icon">✦</span> Smart Recommendation
+          </h3>
+          <p id="recoText">—</p>
+        </div>
+
+        <!-- MOCK NOTICE -->
+        <div id="mockNotice" class="mock-notice hidden">
+          ⚠ Running in demo mode — <code>loan_model.pkl</code> not found.
+          Results are heuristic estimates.
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span>NexusLend AI · Intelligent Credit Intelligence Platform</span>
+      <span class="footer-dot">·</span>
+      <span>Model v2.1 · Backend: Flask + scikit-learn</span>
+    </footer>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
